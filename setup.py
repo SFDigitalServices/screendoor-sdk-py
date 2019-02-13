@@ -1,4 +1,4 @@
-'''setup.py for screendoor-sdk'''
+"""setup.py for screendoor-sdk"""
 # pylint: disable=E0611,F0401
 #         No name 'core' in module 'distutils'
 #         Unable to import 'distutils.core'
