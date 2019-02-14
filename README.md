@@ -1,4 +1,4 @@
-# Screendoor SDK for Python
+# Screendoor SDK for Python [![CircleCI](https://circleci.com/gh/SFDigitalServices/screendoor-sdk-py.svg?style=svg)](https://circleci.com/gh/SFDigitalServices/screendoor-sdk-py)
 
 ## Install
 > $ pip install -e "git://github.com/SFDigitalServices/screendoor-sdk-py#egg=screendoor-sdk"
