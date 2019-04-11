@@ -48,7 +48,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python3 -m pytest tests
+            python3 -m pytest --cov=screendoor_sdk tests/  --cov-fail-under=100
+            coveralls
 
       - store_artifacts:
           path: test-reports

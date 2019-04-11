@@ -1,4 +1,4 @@
-# Screendoor SDK for Python [![CircleCI](https://circleci.com/gh/SFDigitalServices/screendoor-sdk-py.svg?style=svg)](https://circleci.com/gh/SFDigitalServices/screendoor-sdk-py)
+# Screendoor SDK for Python [![CircleCI](https://badgen.net/circleci/github/SFDigitalServices/screendoor-sdk-py/master)](https://circleci.com/gh/SFDigitalServices/screendoor-sdk-py) [![Coverage Status](https://coveralls.io/repos/github/SFDigitalServices/screendoor-sdk-py/badge.svg?branch=master)](https://coveralls.io/github/SFDigitalServices/screendoor-sdk-py?branch=master)
 
 ## Install
 > $ pip install -e "git://github.com/SFDigitalServices/screendoor-sdk-py#egg=screendoor-sdk"
@@ -9,3 +9,7 @@
 > scrndr = Screendoor(`API_KEY`)
 
 > responses = scrndr.get_project_responses(`PROJECT_ID`, {'per_page': 1, 'page' : 1}, 1)
+
+> response = scrndr.update_project_response(`PROJECT_ID`, `RESPONSE_ID`, {"1": "Test Name"})
+
+> labels = scrndr.get_project_labels(`PROJECT_ID`)
