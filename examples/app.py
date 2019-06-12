@@ -16,6 +16,7 @@ class Page():
     """ Page class """
     scrndr = None
     project_id = None
+    response_id = None
 
     def on_get(self, _req, _resp, name):
         """ on page GET requests """
@@ -25,6 +26,7 @@ class Page():
         if dispatch:
             self.scrndr = Screendoor(os.environ['SD_KEY'])
             self.project_id = os.environ['SD_PROJECT_ID']
+            self.response_id = os.environ['SD_RESPONSE_ID']
         else:
             dispatch = self.default_page
         dispatch(_req, _resp)
@@ -44,7 +46,7 @@ class Page():
     def get_project_responses(self, _req, resp):
         """ screendoor project response """
         responses = self.scrndr.get_project_responses(
-            os.environ['SD_PROJECT'],
+            self.project_id,
             {'per_page': 1, 'page' : 1},
             1
             )
@@ -59,7 +61,7 @@ class Page():
 
     def update_project_response(self, _req, resp):
         """ update a project response """
-        response_id = os.environ['SD_RESPONSE_ID']
+        response_id = self.response_id
         response_fields = {}
         status = None
         labels = None
