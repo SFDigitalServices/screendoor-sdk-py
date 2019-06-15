@@ -47,7 +47,7 @@ class Page():
         """ screendoor project response """
         responses = self.scrndr.get_project_responses(
             self.project_id,
-            {'per_page': 1, 'page' : 1},
+            {'per_page': 10, 'page' : 1},
             1
             )
         resp.status = falcon.HTTP_200
@@ -64,8 +64,14 @@ class Page():
         response_id = self.response_id
         response_fields = {}
         status = None
-        labels = None
+        labels = []
         force_validation = True
+
+        project_labels = self.scrndr.get_project_labels(self.project_id)
+        if project_labels:
+            for label in project_labels:
+                labels.append(label['name'])
+
         response = self.scrndr.update_project_response(
             self.project_id, response_id, response_fields,
             status, labels, force_validation)
