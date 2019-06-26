@@ -39,8 +39,10 @@ class Page():
 
     def default_error(self, _req, resp):
         """Handle default error"""
-        resp.status = falcon.HTTP_404
-        msg_error = jsend.error('404 - Not Found')
+        msg = falcon.HTTP_404
+        status = falcon.HTTP_404
+        resp.status = status
+        msg_error = jsend.error(msg)
         resp.body = json.dumps(msg_error)
 
     def get_project_responses(self, _req, resp):
@@ -59,10 +61,10 @@ class Page():
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(responses)
 
-    def update_project_response(self, _req, resp):
-        """ update a project response """
+    def update_project_response_labels_all(self, _req, resp):
+        """ update a project response with all labels """
         response_id = self.response_id
-        response_fields = {}
+        response_fields = None
         status = None
         labels = []
         force_validation = True
@@ -75,8 +77,25 @@ class Page():
         response = self.scrndr.update_project_response(
             self.project_id, response_id, response_fields,
             status, labels, force_validation)
-        if response:
-            resp.status = str(response.status_code)
+        if response.headers:
+            resp.status = response.headers['Status']
+            resp.body = json.dumps(response.json())
+        else:
+            self.default_error(_req, resp)
+
+    def update_project_response_labels_none(self, _req, resp):
+        """ update a project response with no labels"""
+        response_id = self.response_id
+        response_fields = None
+        status = None
+        labels = []
+        force_validation = True
+
+        response = self.scrndr.update_project_response(
+            self.project_id, response_id, response_fields,
+            status, labels, force_validation)
+        if response.headers:
+            resp.status = response.headers['Status']
             resp.body = json.dumps(response.json())
         else:
             self.default_error(_req, resp)
