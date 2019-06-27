@@ -1,5 +1,9 @@
 # Screendoor SDK for Python [![CircleCI](https://badgen.net/circleci/github/SFDigitalServices/screendoor-sdk-py/master)](https://circleci.com/gh/SFDigitalServices/screendoor-sdk-py) [![Coverage Status](https://coveralls.io/repos/github/SFDigitalServices/screendoor-sdk-py/badge.svg?branch=master)](https://coveralls.io/github/SFDigitalServices/screendoor-sdk-py?branch=master)
 
+Python SDK for interacting with Screendor API
+
+http://dobtco.github.io/screendoor-api-docs/
+
 ## Install
 > $ pip install -e "git://github.com/SFDigitalServices/screendoor-sdk-py#egg=screendoor-sdk"
 

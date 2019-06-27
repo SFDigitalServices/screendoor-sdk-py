@@ -5,7 +5,7 @@
 from distutils.core import setup
 import setuptools # pylint: disable=unused-import
 setup(name='screendoor-sdk',
-      version='0.1.0',
+      version='0.2.2',
       license='MIT',
       author='hui',
       author_email='hui@sfds',

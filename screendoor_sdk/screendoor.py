@@ -2,7 +2,7 @@
 import requests
 class Screendoor(object):
     """ Screendoor class """
-    def __init__(self, api_key, version='0', host='https://screendoor.dobt.co/api'):
+    def __init__(self, api_key, version='1', host='https://screendoor.dobt.co/api'):
         self.host = host
         self.api_key = api_key
         self.version = version
@@ -52,7 +52,7 @@ class Screendoor(object):
                                 response_id, response_fields=None,
                                 status=None, labels=None, force_validation=False):
         """ Update project response """
-        response = {}
+        response = None
         url = self.get_url({
             'path' : '/projects/' + str(project_id) + '/responses/' + str(response_id),
         })
